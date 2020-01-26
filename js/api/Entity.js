@@ -1,9 +1,13 @@
+'use strict';
+
 /**
  * Класс Entity - базовый для взаимодействия с сервером.
  * Имеет свойство URL, равно пустой строке.
  * Имеет свойство HOST, равно 'https://bhj-diplom.letsdocode.ru'.
  * */
 class Entity {
+  URL = '';
+  HOST = 'https://bhj-diplom.letsdocode.ru';
 
   /**
    * Запрашивает с сервера список данных.
@@ -11,7 +15,13 @@ class Entity {
    * (в зависимости от того, что наследуется от Entity)
    * */
   static list( data, callback = f => f ) {
-
+    return createRequest({
+      method: 'GET',
+      url: this.URL + this.HOST,
+      responseType: 'json',
+      data,
+      callback
+    })
   }
 
   /**
@@ -20,7 +30,13 @@ class Entity {
    * что наследуется от Entity)
    * */
   static create( data, callback = f => f ) {
-
+    return createRequest({
+      method: 'POST',
+      url: this.URL + this.HOST,
+      responseType: 'json',
+      data: Object.assign({_method: 'PUT'}, data),
+      callback
+    })
   }
 
   /**
@@ -28,7 +44,13 @@ class Entity {
    * (в зависимости от того, что наследуется от Entity)
    * */
   static get( id = '', data, callback = f => f ) {
-
+    return createRequest({
+      method: 'GET',
+      url: this.URL + this.HOST,
+      responseType: 'json',
+      data: Object.assign({id: id}, data),
+      callback
+    })
   }
 
   /**
@@ -36,7 +58,11 @@ class Entity {
    * (в зависимости от того, что наследуется от Entity)
    * */
   static remove( id = '', data, callback = f => f ) {
-
+    return createRequest({
+      method: 'POST',
+      url: this.URL + this.HOST,
+      responseType: 'json',
+      data: Object.assign({id: id}, {_method: "DELETE"}, data),
+    })
   }
 }
-

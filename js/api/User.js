@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Класс User управляет авторизацией, выходом и
  * регистрацией пользователя из приложения
@@ -5,12 +7,14 @@
  * Имеет свойство URL, равное '/user'.
  * */
 class User {
+  URL = '/user';
+  HOST = Entity.HOST;
   /**
    * Устанавливает текущего пользователя в
    * локальном хранилище.
    * */
   static setCurrent(user) {
-
+    localStorage.setItem('user', JSON.stringify(user))
   }
 
   /**
