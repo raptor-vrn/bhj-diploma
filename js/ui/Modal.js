@@ -13,6 +13,12 @@ class Modal {
    * необходимо выкинуть ошибку.
    * */
   constructor( element ) {
+    if (element != '') {
+        this.element = element;
+        this.registerEvents();
+    } else {
+        throw new Error('Element is empty')
+    }
 
   }
 
@@ -22,7 +28,8 @@ class Modal {
    * (с помощью метода Modal.onClose)
    * */
   registerEvents() {
-
+    let
+    this.element.getAttgetAttribute('dismiss')
   }
 
   /**
@@ -30,7 +37,8 @@ class Modal {
    * Закрывает текущее окно (Modal.close())
    * */
   onClose( e ) {
-
+    e.preventDefault();
+    this.close()
   }
   /**
    * Удаляет обработчики событий
@@ -43,12 +51,12 @@ class Modal {
    * со значением «block»
    * */
   open() {
-
+    this.element.style.display = 'block';
   }
   /**
    * Закрывает окно: удаляет CSS-свойство display
    * */
   close(){
-
+      this.element.style.display = '';
   }
 }

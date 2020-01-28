@@ -6,8 +6,7 @@
  * Имеет свойство HOST, равно 'https://bhj-diplom.letsdocode.ru'.
  * */
 class Entity {
-  URL = '';
-  HOST = 'https://bhj-diplom.letsdocode.ru';
+
 
   /**
    * Запрашивает с сервера список данных.
@@ -66,3 +65,5 @@ class Entity {
     })
   }
 }
+Entity.URL = '';
+Entity.HOST = 'https://bhj-diplom.letsdocode.ru';

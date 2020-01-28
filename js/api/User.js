@@ -7,8 +7,7 @@
  * Имеет свойство URL, равное '/user'.
  * */
 class User {
-  URL = '/user';
-  HOST = Entity.HOST;
+
   /**
    * Устанавливает текущего пользователя в
    * локальном хранилище.
@@ -117,3 +116,5 @@ class User {
     })
   }
 }
+User.URL = '/user';
+User.HOST = Entity.HOST;
