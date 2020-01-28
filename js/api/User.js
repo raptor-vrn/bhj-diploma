@@ -63,7 +63,18 @@ class User {
    * User.setCurrent.
    * */
   static login( data, callback = f => f ) {
-
+    return createRequest({
+        method: 'POST',
+        url: this.HOST + this.URL + '/login',
+        responseType: 'json',
+        data,
+        callback: (err, response) => {
+            if (response.user && response.success === true) {
+                this.setCurrent(response.user);
+            }
+            callback(err, response);
+        }
+    })
   }
 
   /**
@@ -73,7 +84,18 @@ class User {
    * User.setCurrent.
    * */
   static register( data, callback = f => f ) {
-
+    return createRequest({
+        method: 'POST',
+        url: this.HOST + this.URL + '/register',
+        responseType: 'json',
+        data,
+        callback: (err, response) => {
+            if (response.user && response.success === true) {
+                this.setCurrent(response.user);
+            }
+            callback(err, response);
+        }
+    })
   }
 
   /**
@@ -81,6 +103,17 @@ class User {
    * выхода необходимо вызвать метод User.unsetCurrent
    * */
   static logout( data, callback = f => f ) {
-
+    return createRequest({
+        method: 'POST',
+        url: this.HOST + this.URL + '/logout',
+        responseType: 'json',
+        data,
+        callback: (err, response) => {
+            if (response.user && response.success === true) {
+                this.unsetCurrent();
+            }
+            callback(err, response);
+        }
+    })
   }
 }
