@@ -28,8 +28,11 @@ class Modal {
    * (с помощью метода Modal.onClose)
    * */
   registerEvents() {
-    let
-    this.element.getAttgetAttribute('dismiss')
+      const closeButtons = this.element.querySelectorAll('[data-dismiss="modal"]');
+      this.onClose = this.onClose.bind(this);
+      for (let closeButton of closeButtons) {
+          closeButton.addEventListener('click', this.onClose);
+      }
   }
 
   /**
@@ -44,7 +47,11 @@ class Modal {
    * Удаляет обработчики событий
    * */
   unregisterEvents() {
-
+      const deleteButtons = this.element.querySelectorAll('[data-dismiss="modal"]');
+      this.onClose = this.onClose.bind(this);
+      for (let deleteButton of deleteButtons) {
+          deleteButton.removeEventListener('click', this.onClose);
+      }
   }
   /**
    * Открывает окно: устанавливает CSS-свойство display
