@@ -8,5 +8,6 @@
 
 
 class Account extends Entity {
-    URL = '/account'
 }
+
+Account.URL = '/account';

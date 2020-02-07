@@ -13,11 +13,11 @@ class Modal {
    * необходимо выкинуть ошибку.
    * */
   constructor( element ) {
-    if (element != '') {
+    if (!element) {
+        throw new Error('Element is empty')
+    } else {
         this.element = element;
         this.registerEvents();
-    } else {
-        throw new Error('Element is empty')
     }
 
   }

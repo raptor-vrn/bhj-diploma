@@ -66,7 +66,6 @@ class AsyncForm {
     options.url = this.element.getAttribute('action');
     options.method = this.element.method;
     options.data = this.getData();
-    console.log(options);
     this.onSubmit(options);
 
   }

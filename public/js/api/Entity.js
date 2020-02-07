@@ -19,7 +19,7 @@ class Entity {
    * на сервер. (в зависимости от того,
    * что наследуется от Entity)
    * */
-  static create( data, callback = f => f ) {
+static create( data, callback = f => f ) {
 
   }
 
