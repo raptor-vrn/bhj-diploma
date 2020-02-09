@@ -5,7 +5,6 @@
  * на сервер.
  * */
 const createRequest = (options = {}) => {
-    //console.log(options)
     const xhr = new XMLHttpRequest();
     let form = new FormData;
 
@@ -13,9 +12,7 @@ const createRequest = (options = {}) => {
     xhr.responseType = options.responseType;
 
     if (options['method'] === 'GET') {
-
         options['url'] += "?";
-
         for (let item in options.data) {
             options['url'] += `${item}=${options['data'][item]}&`;
         }
@@ -25,7 +22,6 @@ const createRequest = (options = {}) => {
         }
     }
     xhr.open(options['method'], options['url']);
-
     xhr.addEventListener("readystatechange", function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             let response = xhr.response;
