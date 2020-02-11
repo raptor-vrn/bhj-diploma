@@ -19,7 +19,6 @@ class AccountsWidget {
       this.element = element;
       this.registerEvents();
       this.update()
-      console.log(this.element)
     }
   }
 
@@ -58,7 +57,6 @@ class AccountsWidget {
         if (response) {
           this.clear();
           for (let i = 0; i < response.data.length; i++) {
-            //console.log(response.data[i]);
             this.renderItem(response.data[i]);
           }
         }
