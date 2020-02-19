@@ -29,7 +29,6 @@ class User {
    * из локального хранилища
    * */
   static current() {
-      console.log(localStorage.getItem('user'))
       if (localStorage.getItem('user')) {
           return JSON.parse(localStorage.getItem('user'))
       }
@@ -70,7 +69,7 @@ class User {
         data,
         callback: (err, response) => {
             if (response.user && response.success === true) {
-                this.setCurrent(response.user);
+                User.setCurrent(response.user);
             }
             callback(err, response);
         }
@@ -91,7 +90,7 @@ class User {
         data,
         callback: (err, response) => {
             if (response.user && response.success === true) {
-                this.setCurrent(response.user);
+                User.setCurrent(response.user);
             }
             callback(err, response);
         }
@@ -110,7 +109,7 @@ class User {
         data,
         callback: (err, response) => {
             if (response.user && response.success === true) {
-                this.unsetCurrent();
+                User.unsetCurrent();
             }
             callback(err, response);
         }

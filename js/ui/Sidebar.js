@@ -37,19 +37,20 @@ class Sidebar {
       e.preventDefault();
       const registerModal = App.getModal('register');
       registerModal.open();
-    })
+    });
 
     document.querySelector('.menu-item_login').addEventListener('click', (e) => {
       e.preventDefault();
       const enterModal = App.getModal('login')
       enterModal.open();
-    })
+    });
 
     document.querySelector('.menu-item_logout').addEventListener('click', (e) => {
       e.preventDefault();
       User.logout({}, (err, response) => {
         if (response && response.success === true) {
           App.setState('init');
+          User.unsetCurrent();
         }
       })
     })

@@ -57,9 +57,10 @@ class Entity {
   static remove( id = '', data, callback = f => f ) {
     return createRequest({
       method: 'POST',
-      url: this.URL + this.HOST,
+      url: this.HOST + this.URL,
       responseType: 'json',
       data: Object.assign({id: id}, {_method: "DELETE"}, data),
+      callback
     })
   }
 }

@@ -38,10 +38,10 @@ class CreateTransactionForm extends AsyncForm {
    * в котором находится форма
    * */
   onSubmit( options ) {
-      console.log(options);
-      Transaction.create(options, (err, response) => {
-          console.log(response);
-        if(response === true) {
+
+      Transaction.create(options.data, (err, response) => {
+
+        if(response.success === true) {
             this.element.reset();
             const type = options.data.type;
             const modalName = 'new' + type[0].toUpperCase() + type.substr(1);
